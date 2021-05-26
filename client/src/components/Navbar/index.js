@@ -8,7 +8,7 @@ import "./style.css";
 
 function Navbar() {
 	return (
-		<div>
+		<div style={{height:"120px"}}>
 			<header id="main-header">
 				<Container>
 					<Row>
@@ -20,11 +20,11 @@ function Navbar() {
 								<li className="menu-item ">
 									<Link className={window.location.pathname === "/search" ? "nav-link active" : "nav-link"} to="./search">Search</Link>
 								</li>
+								<li className="menu-item"><Link className={window.location.pathname === "/manualadd" ? "nav-link active" : "nav-link"} to="./manualadd">Manually Add in</Link></li>
 
 								<li className="menu-item active"><Link className={window.location.pathname === "/bibliography" ? "nav-link active" : "nav-link"} to="./bibliography">Reference List</Link>
 								</li>
 
-								<li className="menu-item"><Link className={window.location.pathname === "/manualadd" ? "nav-link active" : "nav-link"} to="./manualadd">Manually Add in</Link></li>
 
 							
 							</ul>

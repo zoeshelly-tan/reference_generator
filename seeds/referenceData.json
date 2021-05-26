@@ -1,0 +1,23 @@
+[
+  {
+    "title": "book1",
+    "author":"she",
+    "year":"2011",
+    "publisher":"News",
+    "cityPublished":"adelaide"
+  },
+  {
+    "title": "book2",
+    "author":"she",
+    "year":"2011",
+    "publisher":"News",
+    "cityPublished":"adelaide"
+  },
+  {
+    "title": "book2",
+    "author":"she",
+    "year":"2011",
+    "publisher":"News",
+    "cityPublished":"adelaide"
+  }
+]

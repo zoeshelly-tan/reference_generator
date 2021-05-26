@@ -1,31 +1,37 @@
-import React from "react";
-
+import React from 'react'
+import { Button, Item } from 'semantic-ui-react'
 import "./style.css";
-// import API from "../../utils/API";
-import SaveBtn from "../SaveBtn"
+import { Divider } from 'semantic-ui-react'
+import { Link } from 'react-router-dom';
 
-class BookCard extends React.Component {
-	render(){
+
+const BookCard = (props) => {
+  console.log(props)
+  // const [readMore,setReadMore] = useState(false);
   return (
-   
-    <div className="blog-post list-style clearfix">
-							<div className="img-wrapper">
-								<img src=" " alt="" className="img-responsive"/>
-							</div>
-							<div className="info-block">
-								<h3 className="category">Mobile Apps</h3>
-								<a href="blog-single.html"><h2>enim anoed minim vein quis nostrud</h2></a>
-								<p>Dolor sit amet, consectetur adipin et dolore magna aliquLorem t</p>
-								<div className="meta">
-									<h5>June 8,  2016</h5>
-									<span className="sep">/</span>
-									<h5>22 Comments</h5>
-								</div>
-								<SaveBtn></SaveBtn>
-							</div>
-						</div>
-            
-  );
-}}
+    <div>
+      <Item.Group>
+        <Item>
+          <Item.Content>
+            <Item.Header as='a'>{props.title}</Item.Header>
+            <Item.Meta><strong>Authors: </strong>{props.authors}</Item.Meta>
+            <Item.Description>
+              Description: {props.description}
+            </Item.Description>
+            <Item.Extra>
+              <Button basic color='green' href={props.previewLink} target='_blank'>
+                Link to the Book
+              </Button>
+              <Button basic color='red'>
+                Cite
+             </Button>
+            </Item.Extra>
+          </Item.Content>
+        </Item>
+      </Item.Group>
+      <Divider />
+    </div>
+  )
+}
 
 export default BookCard;
