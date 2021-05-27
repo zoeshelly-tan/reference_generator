@@ -1,33 +1,38 @@
-import React from 'react'
-import { Button, Form, Grid, Header, Image, Message, Segment } from 'semantic-ui-react'
+import React from 'react';
+import loginImg from "../../asset/loginImg.png";
+import "./style.css";
 
-const LoginForm = () => (
-  <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
-    <Grid.Column style={{ maxWidth: 450 }}>
-      <Header as='h2' color='teal' textAlign='center'>
-        <Image src='/logo.png' /> Log-in to your account
-      </Header>
-      <Form size='large'>
-        <Segment stacked>
-          <Form.Input fluid icon='user' iconPosition='left' placeholder='E-mail address' />
-          <Form.Input
-            fluid
-            icon='lock'
-            iconPosition='left'
-            placeholder='Password'
-            type='password'
-          />
+class Loginform extends React.Component{
+  constructor(props){
+    super(props);
+  };
+  render(){
+    return(
+    <div className = "base-container" ref={this.props.contianerRef}>
+      <div className ="header">Login</div>
+      <div className="content">
+        <div className = "image">
+          <img src={loginImg}/>
+        </div>
+        <div className="form">
+          <div className="form-group">
+            <label htmlFor="usename">Usename</label>
+            <input type="text" name="username" placeholder="Username"/>
+          </div>
+          <div className="form-group">
+            <label htmlFor="password">Password</label>
+            <input type="password" name="password" placeholder="passowrd"/>
+          </div>
+        </div>
+      </div>
+      <div className="footer">
+        <button className="btn" type="button">
+          Login
+        </button>
+      </div>
+    </div>
+    )}
+}
 
-          <Button color='teal' fluid size='large'>
-            Login
-          </Button>
-        </Segment>
-      </Form>
-      <Message>
-        New to us? <a href='#'>Sign Up</a>
-      </Message>
-    </Grid.Column>
-  </Grid>
-)
+export default Loginform
 
-export default LoginForm

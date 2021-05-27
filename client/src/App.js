@@ -4,6 +4,7 @@ import Search from "./pages/Search";
 import ManualAdd from "./pages/ManualAdd";
 import Bibliography from "./pages/Bibliography";
 import Nav from "./components/Navbar";
+import Login from "./pages/Login";
 
 function App() {
   return (
@@ -21,6 +22,9 @@ function App() {
             <Bibliography />
           </Route>
           
+          <Route exact path={"/login"}>
+            <Login />
+          </Route>
         </Switch>
       </div>
     </Router>

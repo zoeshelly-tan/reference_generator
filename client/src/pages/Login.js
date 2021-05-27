@@ -1,44 +1,74 @@
 import React from "react";
 import Container from "../components/Container";
-import Login from "../components/LoginForm";
+import LoginForm from "../components/LoginForm";
+import Register from "../components/Register";
+
 
 class Login extends React.Component {
-    constructor(props){
-        super(props);
-
-        this.state = {
-            email:"",
-            password:"",
-            loginErrors:""
-        };
-
-        this.handleSubmit = this.handleSubmit.bind(this);
-        this.handleChange = this.handleSubmit.bind(this);
+    constructor(props) {
+      super(props);
+      this.state = {
+        isLogginActive: true
+      };
     }
-    handleChange(e){
-        this.setState({
-            [e.target.name]:e.target.value
-        });
+  
+    componentDidMount() {
+      //Add .right by default
+      this.rightSide.classList.add("right");
     }
-    handleSubmit(e){
-        const {email, password,}
-
-        axios
-        .post(
-
-        )
+  
+    changeState() {
+      const { isLogginActive } = this.state;
+  
+      if (isLogginActive) {
+        this.rightSide.classList.remove("right");
+        this.rightSide.classList.add("left");
+      } else {
+        this.rightSide.classList.remove("left");
+        this.rightSide.classList.add("right");
+      }
+      this.setState(prevState => ({ isLogginActive: !prevState.isLogginActive }));
     }
+  
     render() {
-        return (
-
-            <div className="services-wrapper style-two">
-                <Container>
-                    <Login/>
-                    <BookInput/>
-                </Container>
-            </div>
-        )
+      const { isLogginActive } = this.state;
+      const current = isLogginActive ? "Register" : "Login";
+      const currentActive = isLogginActive ? "login" : "register";
+      return (
+        <div className="App">
+          <div className="login">
+            < Container ref={ref => (this.container = ref)}>
+              {isLogginActive && (
+                <LoginForm containerRef={ref => (this.current = ref)} />
+              )}
+              {!isLogginActive && (
+                <Register containerRef={ref => (this.current = ref)} />
+              )}
+            </ Container>
+            <RightSide
+              current={current}
+              currentActive={currentActive}
+              containerRef={ref => (this.rightSide = ref)}
+              onClick={this.changeState.bind(this)}
+            />
+          </div>
+        </div>
+      );
     }
-}
-
-export default Login;
+  }
+  
+  const RightSide = props => {
+    return (
+      <div
+        className="right-side"
+        ref={props.containerRef}
+        onClick={props.onClick}
+      >
+        <div className="inner-container">
+          <div className="text">{props.current}</div>
+        </div>
+      </div>
+    );
+  };
+  
+  export default Login;

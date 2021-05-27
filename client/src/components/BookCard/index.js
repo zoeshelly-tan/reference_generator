@@ -2,7 +2,7 @@ import React from 'react'
 import { Button, Item } from 'semantic-ui-react'
 import "./style.css";
 import { Divider } from 'semantic-ui-react'
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 
 
 const BookCard = (props) => {
