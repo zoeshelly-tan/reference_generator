@@ -1,9 +1,12 @@
 import axios from "axios";
 
-const googleScholarAPI = {
+
+export default{
+    //login 
+    login: function(userData){
+        return axios.post("/api/login", userData)
+    },
     getGoogleScholar: function (){
         return axios.get("https://www.googleapis.com/books/v1/volumes");
     }
 }
-
-export default googleScholarAPI;
