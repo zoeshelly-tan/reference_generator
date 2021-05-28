@@ -7,7 +7,7 @@ import Nav from "./components/Navbar";
 import Login from "./pages/Login";
 import Register from "./components/Register";
 // import { import } from "../../../../../../uadel-adel-fsf-pt-11-2020-u-c/week_14/01-Activities/16-Stu_Sessions/Solved/config/connection";
-import React,{useState} from 'react';
+
 import API from './utils/API';
 
 function App() {

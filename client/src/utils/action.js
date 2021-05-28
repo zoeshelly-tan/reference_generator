@@ -3,6 +3,7 @@ export const REMOVE_POST = "REMOVE_POST";
 export const SET_CURRENT_POST = "SET_CURRENT_POST";
 export const LOGIN = "LOGIN";
 export const LOADING = "LOADING";
+export const ADD_REFERENCE = "ADD_REFERENCE"
 
 export const ADD_FAVORITE = "ADD_FAVORITE";
 export const REMOVE_FAVORITE = "REMOVE_FAVORITE";

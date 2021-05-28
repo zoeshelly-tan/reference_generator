@@ -7,6 +7,7 @@ import {
   // ADD_FAVORITE,
   // UPDATE_FAVORITES,
   // REMOVE_FAVORITE,
+  ADD_REFERENCE,
   LOGIN,
   LOADING
 } from "./actions";
@@ -31,20 +32,20 @@ const reducer = (state, action) => {
         })
       };
 
-    // case ADD_POST:
-    //   return {
-    //     ...state,
-    //     posts: [action.post, ...state.posts],
-    //     loading: false
-    //   };
+    case ADD_REFERENCE:
+      return {
+        ...state,
+        references: [action.reference, ...state.references],
+        loading: false
+      };
 
-    // case REMOVE_POST:
-    //   return {
-    //     ...state,
-    //     posts: state.posts.filter((post) => {
-    //       return post._id !== action._id;
-    //     })
-    //   };
+    case REMOVE_REFERENCE:
+      return {
+        ...state,
+        references: state.references.filter((reference) => {
+          return reference._id !== action._id;
+        })
+      };
 
     // case ADD_FAVORITE:
     //   return {
@@ -84,9 +85,14 @@ const StoreProvider = ({ value = [], ...props }) => {
     posts: [],
     currentPost: {
       _id: 0,
-      title: "",
-      body: "",
-      author: ""
+      firstNameRef:"",
+      lastNameRef:"",
+      yearRef:"",
+      titleRef: "",
+      editionRef: "",
+      cityPublishedRef: "",
+      publisherRef: "",
+      pageRef: "",
     },
     favorites: [],
     loading: false

@@ -1,56 +1,60 @@
 const db = require("../models");
 // const bcrypt = require('bcryptjs');
 const User = require('../models/User')
-import ReactSession from 'react-client-session';
+// import ReactSession from 'react-client-session';
+const mongoose = require('mongoose');
 
+const connStr = 'mongodb://localhost:27017/mongoose-bcrypt-test';
+mongoose.connect(connStr, function (err) {
+    if (err) throw err;
+    console.log('Successfully connected to MongoDB');
+});
+
+// const testUser = new User({
+//     username: 'jmar777',
+//     password: 'Password123'
+// });
+
+// testUser.save(function (err) { 
+//     if (err) throw err;
+// })
+
+// User.findOne({ username: 'jmar777' }, function(err, user) {
+//     if (err) throw err;
+     
+//     // test a matching password
+//     user.comparePassword('Password123', function(err, isMatch) {
+//         if (err) throw err;
+//         console.log('Password123:', isMatch); // -&gt; Password123: true
+//     });
+     
+//     // test a failing password
+//     user.comparePassword('123Password', function(err, isMatch) {
+//         if (err) throw err;
+//         console.log('123Password:', isMatch); // -&gt; 123Password: false
+//     });
+// })
 
 module.exports = {
-    createUser: async => {
+    login: async (req, res,next) => {
         try {
-            const existingUser = await User.findOne({ email: res.body.userInput.email });
-            if (existingUser) {
-                throw new Error('User exists already.');
+            console.log(req.body.username);
+            console.log(User.body.username + "123")
+            const dbUserData = await User.findOne({ username: req.body.username });
+            if (err) {
+                console.error("Database find email error: " + err);
+                return next(err);
             }
-            db.User.create(req.body)
-                .then(dbModel => res.json(dbModel))
-                .catch(err => res.status(422).json(err));
-        }
-        catch (err) {
-            res.status(500).json(err);
-        }
-        try {
-            const dbUserData = await User.create({
-                username: req.body.username,
-                email: req.body.email,
-                password: req.body.password,
-            });
-            req.Session.save(() => {
-                req.session.user_id = userData.id
-                ReactSession.loggedIn = true;
-
-                res.status(200).json(dbUserData);
-            });
-        } catch (err) {
-            console.log(err);
-            res.status(500).json(err);
-        }
-    },
-
-
-    login: async => {
-        try {
-            const dbUserData = await User.findOne({
-                where: {
-                    email: req.body.email,
-                },
-            });
             if (!dbUserData) {
+                // if (User.username = dbUserData) {
                 res
                     .status(400)
                     .json({ message: 'Incorrect email or password. Please try again!' });
+                alert("Incorrect email or password. Please try again!")
+                console.log("err")
                 return;
             }
-            const validPassword = await dbUserData.checkPassword(req.body.password);
+            const validPassword = await User.comparePassword(req.body.password);
 
             if (!validPassword) {
                 res
@@ -68,20 +72,20 @@ module.exports = {
                     .json({ user: dbUserData, message: 'You are now logged in!' });
             });
         } catch (err) {
-            console.log(err);
+            console.log("53hello");
             res.status(500).json(err);
 
         }
-        router.post('/logout', (req, res) => {
-            // When the user logs out, destroy the session
-            if (req.Session.loggedIn) {
-                req.Session.destroy(() => {
-                    res.status(204).end();
-                });
-            } else {
-                res.status(404).end();
-            }
-        });
+        // router.post('/logout', (req, res) => {
+        //     // When the user logs out, destroy the session
+        //     if (req.Session.loggedIn) {
+        //         req.Session.destroy(() => {
+        //             res.status(204).end();
+        //         });
+        //     } else {
+        //         res.status(404).end();
+        //     }
+        // });
 
     }
 };

@@ -50,19 +50,19 @@
 
 // module.exports = Reference;
 
-const mongoose = require("mongoose");
-const Schema = mongoose.Schema;
+// const mongoose = require("mongoose");
+// const Schema = mongoose.Schema;
 
-const referenceSchema = new Schema({
-  title: { type: String, required: true },
-  author: { type: String, required: true },
-  year:{type:Integer, required:true},
-  publisher:{type:Date, required:true},
-  cityPublished:{type:String, required:true},
-  synopsis: String,
-  date: { type: Date, default: Date.now }
-});
+// const referenceSchema = new Schema({
+//   title: { type: String, required: true },
+//   author: { type: String, required: true },
+//   year:{type:Integer, required:true},
+//   publisher:{type:Date, required:true},
+//   cityPublished:{type:String, required:true},
+//   synopsis: String,
+//   date: { type: Date, default: Date.now }
+// });
 
-const Reference = mongoose.model("Reference", referenceSchema);
+// const Reference = mongoose.model("Reference", referenceSchema);
 
-module.exports = Reference;
+// module.exports = Reference;

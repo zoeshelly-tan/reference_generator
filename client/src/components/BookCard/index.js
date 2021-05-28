@@ -8,6 +8,7 @@ import { Divider } from 'semantic-ui-react'
 const BookCard = (props) => {
   console.log(props)
   // const [readMore,setReadMore] = useState(false);
+  
   return (
     <div>
       <Item.Group>

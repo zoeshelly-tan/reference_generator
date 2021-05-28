@@ -1,3 +1,7 @@
+const bcrypt =require('bcryptjs')
+const User = require('../models/User')
+
+
 const withAuth = (req, res, next) => {
 
     if (!req.session.loggedIn) {
