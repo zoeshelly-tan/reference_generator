@@ -58,8 +58,8 @@ const bookSchema = new Schema({
   lastName:{type: String, required: true },
   title: { type: String, required: true },
   // author: { type: String, required: true },
-  year:{type:Integer, required:true},
-  publisher:{type:Date, required:true},
+  year:{type:Number, required:true},
+  publisher:{type:String, required:true},
   cityPublished:{type:String, required:true},
   date: { type: Date, default: Date.now }
 });

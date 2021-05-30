@@ -8,12 +8,15 @@ import { Divider } from 'semantic-ui-react'
 const BookCard = (props) => {
   console.log(props)
   // const [readMore,setReadMore] = useState(false);
+
+
   
   return (
     <div>
       <Item.Group>
         <Item>
-          <Item.Content>
+          <Item.Content >
+            <form onSubmit={props.handleSubmit}>
             <Item.Header as='a'>{props.title}</Item.Header>
             <Item.Meta><strong>Authors: </strong>{props.authors}</Item.Meta>
             <Item.Description>
@@ -23,10 +26,11 @@ const BookCard = (props) => {
               <Button basic color='green' href={props.previewLink} target='_blank'>
                 Link to the Book
               </Button>
-              <Button basic color='red'>
+              <Button basic color='red' type="submit" value="submit">
                 Cite
              </Button>
             </Item.Extra>
+            </form>
           </Item.Content>
         </Item>
       </Item.Group>

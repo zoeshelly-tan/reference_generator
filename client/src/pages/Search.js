@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import request from "superagent"
 import { observer } from 'mobx-react';
 import SessionStore from 'mobx-session';
@@ -10,29 +10,36 @@ import BookCard from "../components/BookCard"
 
 
 const Search = observer(() => {
-    const state = {
-        books: [],
-        searchField: ""
-    }
+    // const state = {
+    //     books: [],
+    //     searchField: ""
+    // }
+    const [books, setBooks] = useState([]);
+    const [searchField, setSearchField] = useState("");
 
     const searchBook = (e) => {
         e.preventDefault();
 
         request
             .get("https://www.googleapis.com/books/v1/volumes")
-            .query({ q: this.state.searchField })
+            .query({ q: searchField })
             .then((data) => {
 
                 console.log(data.body.items);
-                this.setState({ books: data.body.items })
+                setBooks( data.body.items )
             })
     }
 
     const handleSearch = (e) => {
         e.preventDefault();
         console.log(e.target.value);
-        this.setState({ searchField: e.target.value })
+        setSearchField( e.target.value )
     }
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        console.log(e.target); 
+      }
 
     if (SessionStore.initialized) {
 
@@ -50,9 +57,10 @@ const Search = observer(() => {
                             </Container>
                             <Container>
                                 <Row>
-                                    {state.books.map((book, index) => (
+                                    {books.map((book, index) => (
 
                                         <BookCard
+                                            handleSubmit={handleSubmit}
                                             key={index}
                                             title={book.volumeInfo.title}
                                             authors={[book.volumeInfo.authors]}

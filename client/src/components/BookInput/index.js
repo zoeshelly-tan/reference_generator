@@ -1,10 +1,5 @@
 import React, { useRef, useState } from 'react'
 import { Button,  Form } from 'semantic-ui-react';
-// import { ADD_REFERENCE, LOADING } from "../../utils/action";
-// import { useStoreContext } from "../../utils/GlobalState";
-// import API from "../../utils/API";
-// import { ReactDom } from 'react';
-// import { render } from 'node-sass';
 import axios from 'axios';
 
 
@@ -15,17 +10,21 @@ class BookInput extends React.Component {
         year: '',
         title: '',
         edition: '',
-        city: '',
+        cityPublished: '',
         publisher: '',
-        page: ''
+        page: '',
+        books:[]
     }
+
+    
+
     componentDidMount = () => {
         this.getBook();
       };
     
     
       getBook = () => {
-        axios.get('/')
+        axios.get('/api/books/')
           .then((response) => {
             const data = response.data;
             this.setState({ posts: data });
@@ -35,13 +34,12 @@ class BookInput extends React.Component {
             alert('Error retrieving data!!!');
           });
       }
+
+   
     
 
-    handleChange = (e) => {
-        const target = e.target;
-        const name = target.name;
-        const value = target.value;
-
+    handleChange = ({target}) => {
+        const {name,value} = target;
         this.setState({
             [name]: value
         })
@@ -49,8 +47,14 @@ class BookInput extends React.Component {
 
     resetUserInputs = () => {
         this.setState({
-          title: '',
-          body: ''
+            firstName: '',
+            lastName: '',
+            year: '',
+            title: '',
+            edition: '',
+            cityPublished: '',
+            publisher: '',
+            page: ''
         });
       };
 
@@ -63,19 +67,19 @@ class BookInput extends React.Component {
             year: this.state.year,
             title: this.state.title,
             edition: this.state.edition,
-            city: this.state.city,
+            cityPublished: this.state.cityPublished,
             publisher: this.state.publisher,
             page: this.state.page
         };
 
         axios({
             
-            url:'/api/books/',
+            url:'/api/books/save',
             method:'POST',
             data:payload
         })
         .then(()=>{
-            console.log('Data has been sent to the server')
+            alert('Data has been sent to the server')
             this.resetUserInputs();
         })
         .catch(()=>{
@@ -109,7 +113,7 @@ class BookInput extends React.Component {
                 </Form.Field>
                 <Form.Field>
                     <label>City published</label>
-                    <input placeholder='City published' type="text" name="city" value={this.state.city} onChange={this.handleChange} />
+                    <input placeholder='City published' type="text" name="cityPublished" value={this.state.cityPublished} onChange={this.handleChange} />
                 </Form.Field>
                 <Form.Field>
                     <label>Publisher</label>

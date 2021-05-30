@@ -27,6 +27,14 @@ mongoose.connect(process.env.MONGODB_URL || "mongodb://localhost/budget", {
   useFindAndModify: false
 });
 
+mongoose.connection.on('connected',() =>{
+  console.log('Mongoose is connected!!')
+})
+
+//data parsing
+app.use(express.json());
+app.use(express.urlencoded({extended:false}))
+
 app.use(bodyParser.json());
 
 router.use('/login', cors(corsOptions), userController.login);

@@ -1,27 +1,27 @@
-import React from 'react'
-import { Grid, Placeholder, Segment } from 'semantic-ui-react'
+import { PropTypes } from 'mobx-react'
+import React from 'react';
+import { Item, Icon } from 'semantic-ui-react';
 
-const referenceList = (props) => (
+
+
+
+const ReferenceList = (props) => (
+  <Item.Group>
+
+    <Item.Content>
+      <Item.Header as='a'>title</Item.Header>
+      <div>
+        <Icon link name='close' type="button"/>
+      </div>
+      <Item.Description>
+        <p>
+      {props.firstName} {props.lastName}. {props.year},{props.title}, {props.edition}, {props.cityPublished}, {props.publisher}, {props.page}
+          </p>
+      </Item.Description>
+    </Item.Content>
+
   
-
-
-  <Grid columns={12} stackable>
-    <Grid.Column>
-      <Segment raised>
-        <Placeholder>
-          <Placeholder.Header image>
-            <Placeholder.Line />
-            <Placeholder.Line />
-          </Placeholder.Header>
-          <Placeholder.Paragraph>
-          {props.authors},{props.year},{props.title},{props.title},{props.city}
-            <Placeholder.Line length='medium' />
-            <Placeholder.Line length='short' />
-          </Placeholder.Paragraph>
-        </Placeholder>
-      </Segment>
-    </Grid.Column>
-  </Grid>
+  </Item.Group>
 )
 
-export default referenceList
+export default ReferenceList
