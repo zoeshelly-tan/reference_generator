@@ -18,8 +18,26 @@ const Bibliography = observer(() => {
 //            {id:2, authors: "aaaa", year:"2021", title:"atitle",city:"acity"}
 //        ]
 //    })
-    
-const initialState = useContext(ReferenceList)
+// state = {
+//     books:[]
+// }    
+
+// componentDidMount = () => {
+//     this.getBook();
+//   };
+
+
+//   getBook = () => {
+//     axios.get('/books/')
+//       .then((response) => {
+//         const data = response.data;
+//         this.setState({ posts: data });
+//         console.log('Data has been received!!');
+//       })
+//       .catch(() => {
+//         alert('Error retrieving data!!!');
+//       });
+//   }
   
 
     if (SessionStore.initialized) {
@@ -30,6 +48,7 @@ const initialState = useContext(ReferenceList)
                     <Row>
                         <Header>Bibliography</Header>
                         <Tab></Tab>
+                        <ReferenceList></ReferenceList>
                     </Row>
                 </Container>
             )

@@ -1,8 +1,8 @@
 import React, { useRef, useState } from 'react'
-import { Button, Checkbox, Form } from 'semantic-ui-react';
+import { Button,  Form } from 'semantic-ui-react';
 // import { ADD_REFERENCE, LOADING } from "../../utils/action";
 // import { useStoreContext } from "../../utils/GlobalState";
-import API from "../../utils/API";
+// import API from "../../utils/API";
 // import { ReactDom } from 'react';
 // import { render } from 'node-sass';
 import axios from 'axios';
@@ -19,6 +19,23 @@ class BookInput extends React.Component {
         publisher: '',
         page: ''
     }
+    componentDidMount = () => {
+        this.getBook();
+      };
+    
+    
+      getBook = () => {
+        axios.get('/')
+          .then((response) => {
+            const data = response.data;
+            this.setState({ posts: data });
+            console.log('Data has been received!!');
+          })
+          .catch(() => {
+            alert('Error retrieving data!!!');
+          });
+      }
+    
 
     handleChange = (e) => {
         const target = e.target;
@@ -28,7 +45,14 @@ class BookInput extends React.Component {
         this.setState({
             [name]: value
         })
-    }
+    };
+
+    resetUserInputs = () => {
+        this.setState({
+          title: '',
+          body: ''
+        });
+      };
 
     submit = (e) => {
         e.preventDefault();
@@ -45,12 +69,14 @@ class BookInput extends React.Component {
         };
 
         axios({
-            url:'http://localhost:3001/books/save',
+            
+            url:'/api/books/save',
             method:'POST',
             data:payload
         })
         .then(()=>{
             console.log('Data has been sent to the server')
+            this.resetUserInputs();
         })
         .catch(()=>{
             console.log("err")

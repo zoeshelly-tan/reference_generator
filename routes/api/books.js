@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const booksController = require("../../controllers/booksController");
-const book = require('../../models/Book');
+const Book = require('../../models/Book');
 
 
 // // Matches with "/api/books"
@@ -30,9 +30,20 @@ router.get('/', (req, res) => {
 
 router.post('/save',(req,res)=>{
     console.log("body:",req.body)
-    res.json({
-        message:'Data received'
-    });
+    const data = req.body;
+    const newBook = new Book(data)
+
+    //save
+    newBook.save((error)=>{
+        if(err){
+            res.status(500).json({message:'internal server errors'})
+        }else{
+
+            res.json({
+                message:'Data received'
+            });
+        }
+    })
 })
 
 module.exports = router;
