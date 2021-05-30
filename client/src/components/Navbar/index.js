@@ -4,6 +4,8 @@ import Container from "../Container";
 import Row from "../Row"
 import "./style.css";
 
+import UserStore from '../../stores/UserStore';
+
 // Depending on the current path, this component sets the "active" class on the appropriate navigation link item
 
 function Navbar() {
@@ -23,6 +25,8 @@ function Navbar() {
 								<li className="menu-item"><Link className={window.location.pathname === "/manualadd" ? "nav-link active" : "nav-link"} to="./manualadd">Manually Add in</Link></li>
 
 								<li className="menu-item active"><Link className={window.location.pathname === "/bibliography" ? "nav-link active" : "nav-link"} to="./bibliography">Reference List</Link>
+								</li>
+								<li className="menu-item active"><Link className={window.location.pathname === "/" ? "nav-link active" : "nav-link"} to="./" onClick={() => UserStore.logout()}>Logout</Link>
 								</li>
 
 

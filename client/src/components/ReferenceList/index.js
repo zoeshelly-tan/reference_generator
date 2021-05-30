@@ -1,7 +1,10 @@
 import React from 'react'
 import { Grid, Placeholder, Segment } from 'semantic-ui-react'
 
-const PlaceholderExampleGrid = (props) => (
+const referenceList = (props) => (
+  
+
+
   <Grid columns={12} stackable>
     <Grid.Column>
       <Segment raised>
@@ -21,4 +24,4 @@ const PlaceholderExampleGrid = (props) => (
   </Grid>
 )
 
-export default PlaceholderExampleGrid
+export default referenceList

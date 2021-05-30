@@ -10,7 +10,7 @@ import {
   ADD_REFERENCE,
   LOGIN,
   LOADING
-} from "./actions";
+} from "./action";
 
 const StoreContext = createContext();
 const { Provider } = StoreContext;
@@ -39,13 +39,13 @@ const reducer = (state, action) => {
         loading: false
       };
 
-    case REMOVE_REFERENCE:
-      return {
-        ...state,
-        references: state.references.filter((reference) => {
-          return reference._id !== action._id;
-        })
-      };
+    // case REMOVE_REFERENCE:
+    //   return {
+    //     ...state,
+    //     references: state.references.filter((reference) => {
+    //       return reference._id !== action._id;
+    //     })
+    //   };
 
     // case ADD_FAVORITE:
     //   return {
@@ -85,9 +85,9 @@ const StoreProvider = ({ value = [], ...props }) => {
     posts: [],
     currentPost: {
       _id: 0,
-      firstNameRef:"",
-      lastNameRef:"",
-      yearRef:"",
+      firstNameRef: "",
+      lastNameRef: "",
+      yearRef: "",
       titleRef: "",
       editionRef: "",
       cityPublishedRef: "",

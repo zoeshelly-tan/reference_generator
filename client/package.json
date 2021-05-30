@@ -5,6 +5,9 @@
   "proxy": "http://localhost:3001/",
   "dependencies": {
     "axios": "^0.21.1",
+    "mobx": "^5.10.1",
+    "mobx-react": "^6.0.3",
+    "mobx-session": "^1.0.0",
     "mongoose": "^5.12.9",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
