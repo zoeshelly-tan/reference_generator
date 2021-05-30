@@ -27,23 +27,34 @@ router.get('/', (req, res) => {
             console.log('error: ', daerrorta);
         });
 });
+//create book
+router.post('/', async (req, res) => {
+    try {
+      const bookData = await Book.create(req.body);
+      res.status(200).json(bookData);
+    } catch (err) {
+      res.status(400).json(err);
+    }
+  });
 
-router.post('/save',(req,res)=>{
-    console.log("body:",req.body)
-    const data = req.body;
-    const newBook = new Book(data)
 
-    //save
-    newBook.save((error)=>{
-        if(err){
-            res.status(500).json({message:'internal server errors'})
-        }else{
+// router.post('/save',(req,res)=>{
+//     console.log("body:",req.body)
+//     const data = req.body;
+//     const newBook = new Book(data)
 
-            res.json({
-                message:'Data received'
-            });
-        }
-    })
-})
+//     //save
+//     newBook.save((error)=>{
+//         if(err){
+//             res.status(500).json({message:'internal server errors'})
+//         }else{
+
+//             res.json({
+//                 message:'Data received'
+//             });
+//         }
+//     })
+    
+// })
 
 module.exports = router;

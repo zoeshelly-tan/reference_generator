@@ -70,7 +70,7 @@ class BookInput extends React.Component {
 
         axios({
             
-            url:'/api/books/save',
+            url:'/books/',
             method:'POST',
             data:payload
         })
