@@ -66,10 +66,6 @@ const router = require("./routes/index")
 const userController = require("./controllers/userController");
 const mongoose = require("mongoose");
 
-// Serve up static assets (usually on heroku)
-// if (process.env.NODE_ENV === "production") {
-//   app.use(express.static("client/build"));
-// }
 const bodyParser = require("body-parser")
 
 // load secrets to environment variables
@@ -83,32 +79,36 @@ var corsOptions = {
 }
 
 // mongoose.connect(process.env.MONGODB_URL || "mongodb://localhost/budget", {
-//   useNewUrlParser: true,
-//   useFindAndModify: false
-// });
-
-mongoose.connect(
-  process.env.MONGODB_URL || 'mongodb://localhost/deep-thoughts',
-  {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useCreateIndex: true,
-    useFindAndModify: false
-  }
-);
-mongoose.connection.on('connected',() =>{
-  console.log('Mongoose is connected!!')
-})
-
-//data parsing
-app.use(express.json());
-app.use(express.urlencoded({extended:false}))
-
-app.use(bodyParser.json());
-
-router.use('/login', cors(corsOptions), userController.login);
-
-app.use('/', router);
+  //   useNewUrlParser: true,
+  //   useFindAndModify: false
+  // });
+  
+  mongoose.connect(
+    process.env.MONGODB_URL || 'mongodb://localhost/deep-thoughts',
+    {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+      useCreateIndex: true,
+      useFindAndModify: false
+    }
+    );
+    mongoose.connection.on('connected',() =>{
+      console.log('Mongoose is connected!!')
+    })
+    
+    //data parsing
+    app.use(express.json());
+    app.use(express.urlencoded({extended:false}))
+    
+    app.use(bodyParser.json());
+    
+    // Serve up static assets (usually on heroku)
+    if (process.env.NODE_ENV === "production") {
+      app.use(express.static("client/build"));
+    }
+    router.use('/login', cors(corsOptions), userController.login);
+    
+    app.use('/', router);
 
 app.get("*", function (req, res) {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
