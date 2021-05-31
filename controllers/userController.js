@@ -4,7 +4,10 @@ const mongoose = require('mongoose');
 
 let User = mongoose.model('User');
 
-
+module.exports = {
+    login: async (req, res, next) => {
+        try {
+            console.log(req.body.username);
             const dbUserData = await User.findOne({ username: req.body.username });
 
             console.log(dbUserData);
