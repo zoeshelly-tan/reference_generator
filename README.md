@@ -13,6 +13,10 @@
 [Github Repo](https://github.com/zoeshelly-tan/reference_generator)
 [Heroku link](https://techblogzoeshelly.herokuapp.com/)
 
+
+## Screenshots
+Main page
+![main page screenshot](./asset/screenshot.png)
 ## Project Objective
 The project is design to build reference generator to assist the user in writing their assignments, projects and research article by offering the convience way on generating the reference list. 
 
@@ -24,8 +28,15 @@ The project is design to build reference generator to assist the user in writing
 ## Technologies
 -      Node.js
 -      Javascript
--      handlebar
--      mySQL
+-      React js
+-      Mongoodb
+-      css
+-      Semantic react ui
+-      SuperAgent
+-      Mobx
+
+
+
 
 
 
