@@ -50,7 +50,7 @@ class Store {
             });
             const { username, password } = user;
             if (username && password) {
-                const response = await fetch('http://localhost:3001/login', {
+                const response = await fetch('/login', {
                     method: 'POST',
                     body: JSON.stringify({ username, password }),
                     headers: { 'Content-Type': 'application/json' },
