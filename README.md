@@ -1,14 +1,6 @@
 # Reference Generator 
 ![license](https://img.shields.io/badge/License-MIT-yellow.svg)
 
-
-
-
-## New tech
-
-- superagent 
-https://www.npmjs.com/package/superagent 
-
 ## Table of Content
 * [Project Links](#Project-Links)
 * [Screenshots-Demo](#Screenshots)
@@ -18,11 +10,12 @@ https://www.npmjs.com/package/superagent
 * [Contact](#Contact)
 * [License](#License)
 ## Project Links
-[Github Repo](https://github.com/zoeshelly-tan/tech_blog)
+[Github Repo](https://github.com/zoeshelly-tan/reference_generator)
 [Heroku link](https://techblogzoeshelly.herokuapp.com/)
 
 ## Project Objective
-The project is design to build a CMS-style blog site similar to a Wordpress site, where developers can publish their blog posts and comment on other developers’ posts as well. You’ll build this site completely from scratch and deploy it to Heroku..
+The project is design to build reference generator to assist the user in writing their assignments, projects and research article by offering the convience way on generating the reference list. 
+
 
 ## Installation
 - Node.js 
