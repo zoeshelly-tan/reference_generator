@@ -21,8 +21,6 @@ const Bibliography = observer(() => {
     },[])
     
 
-
-
     if (SessionStore.initialized) {
 
         if (SessionStore.hasSession) {
