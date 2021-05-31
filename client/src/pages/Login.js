@@ -29,6 +29,4 @@ const Login = observer(() => {
   return null;
 }
 );
-
-
 export default Login;
