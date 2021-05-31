@@ -1,4 +1,6 @@
 # Reference Generator 
+![license](https://img.shields.io/badge/License-MIT-yellow.svg)
+
 
 
 
@@ -7,24 +9,35 @@
 - superagent 
 https://www.npmjs.com/package/superagent 
 
-## Starting the app locally
+## Table of Content
+* [Project Links](#Project-Links)
+* [Screenshots-Demo](#Screenshots)
+* [Project Objective ](#Project-Objective)
+* [Installation](#Installation)
+* [Technologies](#Technologies)
+* [Contact](#Contact)
+* [License](#License)
+## Project Links
+[Github Repo](https://github.com/zoeshelly-tan/tech_blog)
+[Heroku link](https://techblogzoeshelly.herokuapp.com/)
 
-Start by installing front and backend dependencies. While in this directory, run the following command:
+## Project Objective
+The project is design to build a CMS-style blog site similar to a Wordpress site, where developers can publish their blog posts and comment on other developers’ posts as well. You’ll build this site completely from scratch and deploy it to Heroku..
 
-```
-npm install
-```
+## Installation
+- Node.js 
+- npm install
 
-This should install node modules within the server and the client folder.
+## Technologies
+-      Node.js
+-      Javascript
+-      handlebar
+-      mySQL
 
-After both installations complete, run the following command in your terminal:
 
-```
-npm start
-```
 
-Your app should now be running on <http://localhost:3000>. The Express server should intercept any AJAX requests from the client.
-
-## Deployment (Heroku)
-
-To deploy, simply add and commit your changes, and push to Heroku. As is, the NPM scripts should take care of the rest.
+## Author Contact
+Contact the author with any questions! 
+Github link: [Shelly](https://github.com/zoeshelly-tan)
+## License
+This project is [MIT](https://choosealicense.com/licenses/MIT/) licensed.

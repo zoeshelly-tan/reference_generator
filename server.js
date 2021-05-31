@@ -51,7 +51,7 @@ router.use('/login', cors(corsOptions), userController.login);
 app.use('/', router);
 
 app.get("*", function (req, res) {
-  res.sendFile(path.join(__dirname, "./client/build/index.html"));
+  res.sendFile(path.join(__dirname, "./client/public/index.html"));
 });
 
 app.listen(PORT, function () {
