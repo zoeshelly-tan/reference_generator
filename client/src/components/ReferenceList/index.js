@@ -5,7 +5,7 @@ import { Item, Icon } from 'semantic-ui-react';
 
 
 
-const ReferenceList = (props) => (
+const SavedList = (props) => (
   <Item.Group>
 
     <Item.Content>
@@ -15,7 +15,7 @@ const ReferenceList = (props) => (
       </div>
       <Item.Description>
         <p>
-      {props.firstName} {props.lastName}. {props.year},{props.title}, {props.edition}, {props.cityPublished}, {props.publisher}, {props.page}
+     {props.title}
           </p>
       </Item.Description>
     </Item.Content>
@@ -24,4 +24,4 @@ const ReferenceList = (props) => (
   </Item.Group>
 )
 
-export default ReferenceList
+export default SavedList

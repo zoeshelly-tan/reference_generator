@@ -11,12 +11,18 @@
 * [License](#License)
 ## Project Links
 [Github Repo](https://github.com/zoeshelly-tan/reference_generator)
-[Heroku link](https://techblogzoeshelly.herokuapp.com/)
+[Heroku link](https://arcane-tor-34294.herokuapp.com/search
 
 
 ## Screenshots
 Main page
 ![main page screenshot](./asset/screenshot.png)
+Search Result
+![search result screenshot](./asset/search.png)
+Manual Add in
+![manual screenshot](./asset/manual.png)
+List
+![list screenshot](./asset/list.png)
 ## Project Objective
 The project is design to build reference generator to assist the user in writing their assignments, projects and research article by offering the convience way on generating the reference list. 
 
